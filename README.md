@@ -46,7 +46,7 @@ A comprehensive, production-ready facial recognition system built in Python. Thi
 #### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/yourusername/facial_recognition_system.git
+git clone https://github.com/lesley-cyborg/facial_recognition_system.git
 cd facial_recognition_system
 2. Set Up Virtual Environment
 Windows (PowerShell):
