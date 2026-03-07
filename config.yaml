@@ -1,0 +1,79 @@
+system:
+  name: "Enhanced Facial Recognition System"
+  version: "2.0.0"
+  environment: "production"  # development, testing, production
+
+recognition:
+  tolerance: 0.6
+  model: "hog"  # hog (faster) or cnn (more accurate)
+  upsample_times: 1
+  jitter: 1
+  min_face_size: [80, 80]
+  max_face_size: [300, 300]
+  
+performance:
+  target_fps: 30
+  frame_scale: 0.5
+  use_gpu: false
+  batch_size: 32
+  num_workers: 4
+  async_processing: true
+  frame_skip: 2
+  
+storage:
+  encodings_path: "data/encodings/face_encodings.pkl"
+  database_path: "data/database/face_recognition.db"
+  log_path: "data/logs/recognition.log"
+  text_log_path: "data/logs/recognition_log.txt"
+  exports_path: "data/exports/"
+  
+security:
+  require_authentication: true
+  anti_spoofing: true
+  min_confidence: 0.4
+  jwt_expiration_hours: 24
+  max_login_attempts: 5
+  lockout_minutes: 15
+  
+database:
+  type: "sqlite"  # sqlite, mysql, postgresql
+  pool_size: 10
+  backup_interval_days: 7
+  
+camera:
+  device_id: 0
+  width: 640
+  height: 480
+  fps: 30
+  brightness: 100
+  contrast: 100
+  
+api:
+  enabled: true
+  host: "0.0.0.0"
+  port: 5000
+  debug: false
+  cors_origins: ["http://localhost:3000"]
+  rate_limit: "100/hour"
+  
+logging:
+  level: "INFO"  # DEBUG, INFO, WARNING, ERROR
+  format: "detailed"  # simple, detailed, json
+  max_file_size_mb: 100
+  backup_count: 5
+  
+monitoring:
+  enabled: true
+  metrics_port: 8000
+  health_check_interval: 30
+  
+batch_processing:
+  max_images_per_batch: 1000
+  supported_formats: [".jpg", ".jpeg", ".png", ".bmp"]
+  output_format: "json"
+  
+training:
+  validation_split: 0.2
+  test_split: 0.1
+  augment_data: true
+  random_seed: 42

@@ -1,0 +1,21 @@
+@"
+# Python
+__pycache__/
+*.py[cod]
+venv/
+env/
+ENV/
+
+# Project specific (exclude large files from regular Git)
+data/encodings/*.pkl
+data/database/*.db
+data/logs/*.log
+captured_frames/
+reports/
+models/*.dat
+!models/.gitkeep
+
+# OS files
+.DS_Store
+Thumbs.db
+"@ | Out-File -FilePath ".gitignore" -Encoding UTF8
